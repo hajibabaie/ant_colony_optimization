@@ -1,8 +1,7 @@
-import numpy as np
-
 from ant_colony_optimization.travelling_salesman_problem.data import Data
 from ant_colony_optimization.travelling_salesman_problem.travelling_salesman_problem import cost_function
-from ant_colony_optimization.travelling_salesman_problem.solution_method import ACO
+from ant_colony_optimization.travelling_salesman_problem.solution_methodology import ACO
+import numpy as np
 
 
 def main():
@@ -12,18 +11,20 @@ def main():
 
     model_data = Data.load()
 
+    heuristic_information = np.divide(1, model_data["distances"])
+    pheromone = np.ones_like(heuristic_information)
+
     cost_func = cost_function
 
     solution_method = ACO(cost_function=cost_func,
-                          max_iteration=200,
-                          number_of_ants=200,
-                          pheromone=np.ones_like(model_data["distances"]),
+                          max_iteration=500,
+                          number_of_ants=100,
+                          pheromone=pheromone,
                           pheromone_evaporation_rate=0.02,
                           pheromone_constant=1,
                           pheromone_exponent_rate=2,
-                          heuristic=np.divide(1, model_data["distances"]),
+                          heuristic=heuristic_information,
                           heuristic_exponent_rate=1,
-                          mutation=True,
                           plot=True)
 
     solution_best, run_time = solution_method.run()

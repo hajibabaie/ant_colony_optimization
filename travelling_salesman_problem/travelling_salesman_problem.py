@@ -1,16 +1,15 @@
 from ant_colony_optimization.travelling_salesman_problem.data import Data
 
 
-def cost_function(path):
+def cost_function(tour):
 
-    model_data = Data.load()
-    distances = model_data["distances"]
+    distances = Data.load()["distances"]
 
-    out = 0
-    for i in range(len(path) - 1):
+    cost = 0
+    for i in range(len(tour) - 1):
 
-        out += distances[path[i], path[i + 1]]
+        cost += distances[tour[i], tour[i + 1]]
 
-    out += distances[path[-1], path[0]]
+    cost += distances[tour[-1], tour[0]]
 
-    return out
+    return cost
