@@ -17,7 +17,7 @@ def main():
     cost_func = cost_function
 
     solution = ACO(cost_function=cost_func,
-                   max_iteration=500,
+                   max_iteration=250,
                    number_of_ants=100,
                    pheromone=pheromone,
                    pheromone_constant_update=1,
