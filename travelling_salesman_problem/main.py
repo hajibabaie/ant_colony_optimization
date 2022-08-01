@@ -17,12 +17,12 @@ def main():
     cost_func = cost_function
 
     solution = ACO(cost_function=cost_func,
-                   max_iteration=250,
+                   max_iteration=150,
                    number_of_ants=100,
                    pheromone=pheromone,
                    pheromone_constant_update=1,
                    pheromone_exponent_rate=2,
-                   pheromone_evaporation_rate=0.03,
+                   pheromone_evaporation_rate=0.04,
                    heuristic=heuristic_information,
                    heuristic_exponent_rate=1.7,
                    plot_solution=True)

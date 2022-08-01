@@ -16,7 +16,7 @@ class Data:
         distances = np.zeros((self._number_of_nodes, self._number_of_nodes))
 
         for i in range(self._number_of_nodes):
-            for j in range(self._number_of_nodes):
+            for j in range(i + 1, self._number_of_nodes):
 
                 distances[i, j] = np.sqrt(np.square(location_x[i] - location_x[j]) +
                                           np.square(location_y[i] - location_y[j]))

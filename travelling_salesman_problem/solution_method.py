@@ -148,7 +148,7 @@ class ACO:
             plt.plot(range(self._max_iteration), self._best_cost)
             plt.xlabel("Number of Iteration")
             plt.ylabel("Cost")
-            plt.title("Travelling Salesman Problem Using Travelling Salesman Problem", fontweight="bold")
+            plt.title("Travelling Salesman Problem Using Ant Colony Optimization", fontweight="bold")
             plt.savefig("./figures/cost_function.png")
 
             plt.figure(dpi=300, figsize=(10, 6))
