@@ -16,6 +16,7 @@ class Data:
         distances = np.zeros((self._number_of_nodes, self._number_of_nodes))
 
         for i in range(self._number_of_nodes):
+
             for j in range(i + 1, self._number_of_nodes):
 
                 distances[i, j] = np.sqrt(np.square(location_x[i] - location_x[j]) +
@@ -23,19 +24,18 @@ class Data:
 
                 distances[j, i] = distances[i, j]
 
-
         os.makedirs("./data", exist_ok=True)
-        np.save("./data/location_x.npy", location_x)
-        np.save("./data/location_y.npy", location_y)
-        np.save("./data/distances.npy", distances)
+        np.savetxt("./data/location_x.csv", location_x, delimiter=",")
+        np.savetxt("./data/location_y.csv", location_y, delimiter=",")
+        np.savetxt("./data/distances.csv", distances, delimiter=",")
 
     @staticmethod
     def load():
 
         out = {
-            "location_x": np.load("./data/location_x.npy"),
-            "location_y": np.load("./data/location_y.npy"),
-            "distances": np.load("./data/distances.npy")
+            "location_x": np.genfromtxt("./data/location_x.csv", delimiter=","),
+            "location_y": np.genfromtxt("./data/location_y.csv", delimiter=","),
+            "distances": np.genfromtxt("./data/distances.csv", delimiter=",")
         }
 
         return out

@@ -1,4 +1,4 @@
-from ant_colony_optimization.travelling_salesman_problem.data import Data
+from ant_colony_optimization.travelling_salesman_problem.model_data import Data
 
 
 def cost_function(tour):
@@ -12,4 +12,4 @@ def cost_function(tour):
 
     cost += distances[tour[-1], tour[0]]
 
-    return cost
+    return float(cost)
