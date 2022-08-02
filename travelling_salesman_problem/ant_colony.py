@@ -97,7 +97,7 @@ class ACO:
                 new_cost = self._cost_function(new_tour)
 
                 if new_cost < self._best_ant.cost:
-                    print("Mutation :D")
+
                     self._best_ant.tour = copy.copy(new_tour)
                     self._best_ant.cost = copy.copy(new_cost)
 
@@ -117,6 +117,7 @@ class ACO:
 
             self._pheromone[tour[0], tour[-1]] = self._pheromone[tour[-1], tour[0]]
 
+        self._pheromone *= (1 - self._pheromone_evaporation)
 
     def run(self):
 
