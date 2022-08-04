@@ -1,4 +1,4 @@
-# ant_colony_optimization (Using python)
+# Ant Colony Optimization (Using python)
 
 1. Travelling Salesman Problem Using Ant Colony Optimization. 
 2. Binary Knapsack Problem Using Ant Colony Optimization. 
